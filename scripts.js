@@ -1,15 +1,19 @@
-document.querySelector("form").addEventListener("submit", () => {
-  console.log("Form submitted!");
+const uname = document.querySelector("#username");
+const email = document.querySelector("#email");
+
+uname.addEventListener("keydown", e => {
+  e.preventDefault();
+  console.log("User is typing in username");
 });
 
-document.querySelector("#email").addEventListener("focus", () => {
-  console.log("You entered the email input!");
+email.addEventListener("keydown", e => {
+  e.preventDefault();
+  console.log("User is typing in email");
 });
 
-document.querySelector("#username").addEventListener("blur", () => {
-  console.log("You left the username input!");
-});
-
-document.querySelector("#email").addEventListener("keyup", () => {
-  console.log("You are typing into email input!");
+document.querySelector("form").addEventListener("submit", e => {
+  e.preventDefault();
+  console.log("Form Submitted!");
+  document.querySelector("p").textContent = `${uname.value} - ${email.value}`;
+  console.log(document.querySelector("p").textContent);
 });
